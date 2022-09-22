@@ -1,0 +1,22 @@
+<table class="table table-striped">
+    <thead>
+        <th>Id</th>
+        <th>Cuil</th>
+        <th>Apellidos</th>
+        <th>Nombres</th>
+        <th>Domicilio</th>
+        <th>Teléfono</th>
+        <th>Mail</th>
+    </thead>
+    <tbody>
+        <tr  *ngFor="let item of clienteList$|async">
+            <td>{{item.idCliente}}</td>
+            <td>{{item.cuil}}</td>
+            <td>{{item.apellidos}}</td>
+            <td>{{item.nombres}}</td>
+            <td>{{item.domicilio}}</td>
+            <td>{{item.telefono}}</td>
+            <td>{{item.mail}}</td>
+        </tr>        
+    </tbody>
+</table>
