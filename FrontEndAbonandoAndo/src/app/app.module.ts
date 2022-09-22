@@ -7,18 +7,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ClienteComponent } from './cliente/cliente.component';
 import { ShowClienteComponent } from './cliente/show-cliente/show-cliente.component';
-import { AddClienteComponent } from './cliente/add-cliente/add-cliente.component';
 
 import {ClienteService} from './cliente.service';
 import { SideBarComponent } from './shared/side-bar/side-bar.component';
+import { HomeComponent } from './home/home/home.component';
+import { AddEditClienteComponent } from './cliente/add-edit-cliente/add-edit-cliente.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ClienteComponent,
     ShowClienteComponent,
-    AddClienteComponent,
-    SideBarComponent
+    SideBarComponent,
+    HomeComponent,
+    AddEditClienteComponent
   ],
   imports: [
     BrowserModule,

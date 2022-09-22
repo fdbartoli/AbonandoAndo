@@ -17,4 +17,20 @@ export class ShowClienteComponent implements OnInit {
     this.clienteList$ = this.service.getClienteList();
   }
 
+  modalTitle:string = '';
+  activateAddEditInspectionComponent:boolean = false;
+  cliente:any;
+
+  modalAdd(){
+    this.cliente = {
+      //TODO properties cliente
+    }
+    this.modalTitle = "Agregar Cliente";
+    this.activateAddEditInspectionComponent = true;
+  }
+  modalClose(){
+    this.activateAddEditInspectionComponent =false;
+    this.clienteList$ = this.service.getClienteList();
+  }
+
 }
