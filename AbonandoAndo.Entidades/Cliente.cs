@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace AbonandoAndo.API.Models
+namespace AbonandoAndo.Entidades
 {
-    public partial class Cliente
+    public class Cliente
     {
-        //public Cliente()
-        //{
-        //    Comprobantes = new HashSet<Comprobante>();
-        //}
-
         public int IdCliente { get; set; }
         public long Cuil { get; set; }
         public string Apellidos { get; set; } = null!;
@@ -17,7 +15,5 @@ namespace AbonandoAndo.API.Models
         public string Domicilio { get; set; } = null!;
         public string Telefono { get; set; } = null!;
         public string? Mail { get; set; }
-
-        //public virtual ICollection<Comprobante> Comprobantes { get; set; }
     }
 }
