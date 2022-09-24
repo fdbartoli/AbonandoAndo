@@ -5,7 +5,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ClienteComponent } from './cliente/cliente.component';
 import { ShowClienteComponent } from './cliente/show-cliente/show-cliente.component';
 
 import {ClienteService} from './cliente.service';
@@ -16,7 +15,6 @@ import { AddEditClienteComponent } from './cliente/add-edit-cliente/add-edit-cli
 @NgModule({
   declarations: [
     AppComponent,
-    ClienteComponent,
     ShowClienteComponent,
     SideBarComponent,
     HomeComponent,

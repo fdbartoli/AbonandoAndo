@@ -19,6 +19,7 @@ export class AddEditClienteComponent implements OnInit {
   cuil:number = 0;
   apellidos:string = "";
   nombres:string="";
+  domicilio:string="";
   telefono:string="";
   mail:string="";
  
@@ -37,6 +38,7 @@ export class AddEditClienteComponent implements OnInit {
       cuil:this.cuil,
       apellidos:this.apellidos,
       nombres:this.nombres,
+      domicilio:this.domicilio,
       telefono:this.telefono,
       mail:this.mail,
     }
@@ -57,5 +59,32 @@ export class AddEditClienteComponent implements OnInit {
       }, 4000);
     });
   }
+
+  // updateCliente(){
+  //   var inspection ={
+  //     apellidos:this.apellidos,
+  //     nombres:this.nombres,
+  //     telefono:this.telefono,
+  //     mail:this.mail,
+  //   }
+  //   var idCliente:number = this.idCliente;
+  //   this.service.updateCliente(idCliente,inspection).subscribe(res =>{
+  //     var closeModalBtn = document.getElementById('add-edit-modal-close');
+  //     if(closeModalBtn){
+  //       closeModalBtn.click();
+  //     }
+
+  //     var showUpdateSuccess = document.getElementById('update-success-alert');
+  //     if(showUpdateSuccess){
+  //       showUpdateSuccess.style.display = "block";
+  //     }
+  //     setTimeout(function(){
+  //       if(showUpdateSuccess){
+  //         showUpdateSuccess.style.display = "none";
+  //       }
+  //     }, 4000);
+  //   });
+  // }
+
 
 }
