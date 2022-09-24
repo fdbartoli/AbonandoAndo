@@ -7,7 +7,7 @@
 <li>MSSQL
 <li>Entity Framework
 <li>WEB API
-<li>ANGULAR
+<li>Angular
 </ul>
 
 <h3>Resources:</h3>
