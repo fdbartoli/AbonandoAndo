@@ -18,19 +18,54 @@ export class ShowClienteComponent implements OnInit {
   }
 
   modalTitle:string = '';
-  activateAddEditInspectionComponent:boolean = false;
+  activateAddEditClienteComponent:boolean = false;
   cliente:any;
 
   modalAdd(){
     this.cliente = {
-      //TODO properties cliente
+      idCliente:0,
+      cuil:0,
+      apellidos:"",
+      nombres:"",
+      domicilio:"",
+      telefono:"",
+      mail:""      
     }
-    this.modalTitle = "Agregar Cliente";
-    this.activateAddEditInspectionComponent = true;
+    this.modalTitle = "Agregar cliente";
+    this.activateAddEditClienteComponent = true;
   }
   modalClose(){
-    this.activateAddEditInspectionComponent =false;
+    this.activateAddEditClienteComponent =false;
     this.clienteList$ = this.service.getClienteList();
   }
+
+  modalEdit(item:any){
+    this.cliente= item;
+    this.modalTitle = "Editar cliente";
+    this.activateAddEditClienteComponent = true;
+  }
+
+  delete(item:any){
+    if(confirm(`¿Desea eliminar este cliente? - CUIL: ${item.cuil}?`)){
+      this.service.deleteCliente(item.idCliente).subscribe(res=>{
+        var closeModalBtn = document.getElementById('add-edit-modal-close');
+      if(closeModalBtn){
+        closeModalBtn.click();
+      }
+
+      var showDeleteSuccess = document.getElementById('delete-success-alert');
+      if(showDeleteSuccess){
+        showDeleteSuccess.style.display = "block";
+      }
+      setTimeout(function(){
+        if(showDeleteSuccess){
+          showDeleteSuccess.style.display = "none";
+        }
+      }, 4000);
+      this.clienteList$ = this.service.getClienteList();
+      })
+    }
+  }
+
 
 }
