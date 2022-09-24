@@ -13,6 +13,8 @@
 <h3>Resources:</h3>
 <ul>
 <li><a href=#>Data Base .BAK</a>
+How to install .Bak:
+<a href="https:https://learn.microsoft.com/en-us/sql/samples/adventureworks-install-configure?view=sql-server-ver16&tabs=ssms>
 </ul>
 
 <h3>Collaborators:</h3>
