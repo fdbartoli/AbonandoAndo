@@ -24,8 +24,11 @@
         <input type="text" class="form-control" [(ngModel)] = "mail" name="mail">
     </div>    
     <div>
-        <button (click) = "addCliente()" class="btn btn-primary" >Agregar</button>
+        <button (click) = "addCliente()"  class="btn btn-primary" >Agregar</button>
     </div>
+    <!-- <div>
+        <button (click) = "addCliente()" *ngIf="cliente.idCliente!=0" class="btn btn-primary" >Modificar</button>
+    </div> -->
 <!--     
     <div class="mb-3">
         <label for="status" class="form-label">Status</label>

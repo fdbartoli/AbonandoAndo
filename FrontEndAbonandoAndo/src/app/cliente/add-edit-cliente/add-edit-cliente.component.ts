@@ -29,8 +29,11 @@ export class AddEditClienteComponent implements OnInit {
     this.cuil=this.cliente.cuil;
     this.apellidos=this.cliente.apellidos;
     this.nombres=this.cliente.nombres;
+    this.domicilio=this.domicilio="";
     this.telefono=this.cliente.telefono;
     this.mail=this.cliente.mail;
+    this.clienteList$ = this.service.getClienteList();
+
   }
 
   addCliente(){
@@ -60,31 +63,34 @@ export class AddEditClienteComponent implements OnInit {
     });
   }
 
-  // updateCliente(){
-  //   var inspection ={
-  //     apellidos:this.apellidos,
-  //     nombres:this.nombres,
-  //     telefono:this.telefono,
-  //     mail:this.mail,
-  //   }
-  //   var idCliente:number = this.idCliente;
-  //   this.service.updateCliente(idCliente,inspection).subscribe(res =>{
-  //     var closeModalBtn = document.getElementById('add-edit-modal-close');
-  //     if(closeModalBtn){
-  //       closeModalBtn.click();
-  //     }
+  updateCliente(){
+    var cliente ={
+      idCliente:this.idCliente,
+      cuil:this.cuil,
+      apellidos:this.apellidos,
+      nombres:this.nombres,
+      domicilio:this.domicilio,
+      telefono:this.telefono,
+      mail:this.mail,
+    }
+    var idCliente:number = this.idCliente;
+    this.service.updateCiente(idCliente, cliente).subscribe(res =>{
+      var closeModalBtn = document.getElementById('add-edit-modal-close');
+      if(closeModalBtn){
+        closeModalBtn.click();
+      }
 
-  //     var showUpdateSuccess = document.getElementById('update-success-alert');
-  //     if(showUpdateSuccess){
-  //       showUpdateSuccess.style.display = "block";
-  //     }
-  //     setTimeout(function(){
-  //       if(showUpdateSuccess){
-  //         showUpdateSuccess.style.display = "none";
-  //       }
-  //     }, 4000);
-  //   });
-  // }
+      var showUpdateSuccess = document.getElementById('update-success-alert');
+      if(showUpdateSuccess){
+        showUpdateSuccess.style.display = "block";
+      }
+      setTimeout(function(){
+        if(showUpdateSuccess){
+          showUpdateSuccess.style.display = "none";
+        }
+      }, 4000);
+    });
+  }
 
 
 }
