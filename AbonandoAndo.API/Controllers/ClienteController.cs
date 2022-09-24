@@ -71,9 +71,9 @@ namespace AbonandoAndo.API.Controllers
         {
 
             if (id != cliente.IdCliente)
-                {
-                    return BadRequest();
-                }
+            {
+                return BadRequest();
+            }
 
             _abonandoAndo2Context.Entry(cliente).State = EntityState.Modified;
 
@@ -112,8 +112,26 @@ namespace AbonandoAndo.API.Controllers
             await _abonandoAndo2Context.SaveChangesAsync();
 
             return CreatedAtAction("Get", new { id = cliente.IdCliente }, cliente);
+        }
 
+        // DELETE: api/Inspections/5
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            if (_abonandoAndo2Context.Clientes == null)
+            {
+                return NotFound();
+            }
+            var cliente = await _abonandoAndo2Context.Clientes.FindAsync(id);
+            if (cliente == null)
+            {
+                return NotFound();
+            }
 
+            _abonandoAndo2Context.Clientes.Remove(cliente);
+            await _abonandoAndo2Context.SaveChangesAsync();
+
+            return NoContent();
         }
 
 
