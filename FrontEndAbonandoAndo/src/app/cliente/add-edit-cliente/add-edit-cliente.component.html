@@ -1,1 +1,53 @@
-<p>add-edit-cliente works!</p>
+<form>
+    <div class="mb-3">      
+        <input type="number" class="form-control" [(ngModel)] = "idCliente" name="idCliente"
+        hidden>
+    </div> 
+    <div class="mb-3">
+        <label for="cuil" class="form-label">Cuil</label>
+        <input type="number" class="form-control" [(ngModel)] = "cuil" name="cuil">
+    </div>    
+    <div class="mb-3">
+        <label for="apellidos" class="form-label">Apellidos</label>
+        <input type="text" class="form-control" [(ngModel)] = "apellidos" name="apellidos">
+    </div>    
+    <div class="mb-3">
+        <label for="nombres" class="form-label">Nombres</label>
+        <input type="text" class="form-control" [(ngModel)] = "nombres" name="nombres">
+    </div>    
+    <div class="mb-3">
+        <label for="domicilio" class="form-label">Domicilio</label>
+        <input type="text" class="form-control" [(ngModel)] = "domicilio" name="domicilio">
+    </div>    
+    <div class="mb-3">
+        <label for="telefono" class="form-label">Teléfono</label>
+        <input type="text" class="form-control" [(ngModel)] = "telefono" name="telefono">
+    </div>    
+    <div class="mb-3">
+        <label for="mail" class="form-label">Mail</label>
+        <input type="text" class="form-control" [(ngModel)] = "mail" name="mail">
+    </div>    
+    <div>
+        <button (click) = "addCliente()"  *ngIf="idCliente==0" class="btn btn-primary" >Agregar</button>
+    </div>
+    <div>
+        <button (click) = "updateCliente()" *ngIf="idCliente!=0" class="btn btn-primary" >Modificar</button>
+    </div>
+<!--     
+    <div class="mb-3">
+        <label for="status" class="form-label">Status</label>
+        <select class = "form-control" name="status" id="status"[(ngModel)]="status">
+            <option *ngFor="let status of statusList$|async" [value]="status.statusOption">{{status.statusOption}}</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="comments" class="form-label">Comments</label>
+        <input type="text" class="form-control" [(ngModel)] = "comments" name="comments">
+    </div>    
+        <button (click) ="addInspection()" *ngIf="inspection.id==0" class="btn btn-primary">
+            Add
+        </button>
+        <button (click) ="updateInspection()" *ngIf="inspection.id!=0" class="btn btn-primary">
+            Update
+        </button>    
+</form>  -->
