@@ -21,6 +21,11 @@ a{
     background-color:#ccc;
 }
 
+#box:hover {
+    transform: scale(1.1);
+    
+  }
+
 #insideBox{
     margin: 20px;
     color: rgb(255, 255, 255);
