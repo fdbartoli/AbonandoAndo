@@ -24,12 +24,12 @@ export class ShowClienteComponent implements OnInit {
   modalAdd(){
     this.cliente = {
       idCliente:0,
-      cuil:0,
-      apellidos:"",
-      nombres:"",
-      domicilio:"",
-      telefono:"",
-      mail:""      
+      cuil:null,
+      apellidos:null,
+      nombres:null,
+      domicilio:null,
+      telefono:null,
+      mail:null
     }
     this.modalTitle = "Agregar cliente";
     this.activateAddEditClienteComponent = true;
