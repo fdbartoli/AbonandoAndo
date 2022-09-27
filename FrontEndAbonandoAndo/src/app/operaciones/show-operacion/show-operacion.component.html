@@ -1,28 +1,18 @@
 <button type="button" class="btn btn-primary float-end m-2" data-bs-toggle="modal"
 data-bs-target="#staticBackdrop"(click)="modalAdd()">
- Agregar cliente
+ Agregar operación
 </button>
 
 <table class="table table-striped">
     <thead>
         <th>Id</th>
-        <th>Cuil</th>
-        <th>Apellidos</th>
-        <th>Nombres</th>
-        <th>Domicilio</th>
-        <th>Teléfono</th>
-        <th>Mail</th>
+        <th>Tipo</th>
         <th>Opciones</th>
     </thead>
     <tbody>
-        <tr  *ngFor="let item of clienteList$|async">
-            <td>{{item.idCliente}}</td>
-            <td>{{item.cuil}}</td>
-            <td>{{item.apellidos}}</td>
-            <td>{{item.nombres}}</td>
-            <td>{{item.domicilio}}</td>
-            <td>{{item.telefono}}</td>
-            <td>{{item.mail}}</td>
+        <tr  *ngFor="let item of operacionList$|async">
+            <td>{{item.idOperacion}}</td>
+            <td>{{item.tipo}}</td>
             <td>
               <button class="btn btn-outline-primary me-2 mb-1" 
               (click)="modalEdit(item)" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
@@ -47,7 +37,7 @@ data-bs-target="#staticBackdrop"(click)="modalAdd()">
 
 
 
-  <!-- Add-Edit Cliente Modal -->
+  <!-- Add-Edit Operacion Modal -->
   <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -58,7 +48,7 @@ data-bs-target="#staticBackdrop"(click)="modalAdd()">
           ></button>
         </div>
         <div class="modal-body">
-            <app-add-edit-cliente [cliente]= "cliente" *ngIf ="activateAddEditClienteComponent"></app-add-edit-cliente>  
+            <app-add-edit-operacion [operacion]= "operacion" *ngIf ="activateAddEditOperacionComponent"></app-add-edit-operacion>  
       </div>
     </div>
   </div>

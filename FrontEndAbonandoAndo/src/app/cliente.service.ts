@@ -21,4 +21,11 @@ export class ClienteService {
     return this.http.post(this.clientAPIUrl + "/Cliente", data);
   }
 
+  updateCiente(id:number, data:any){
+    return this.http.put(this.clientAPIUrl + `/Cliente/${id}`, data);
+  }
+
+  deleteCliente(id:number){
+    return this.http.delete(this.clientAPIUrl + `/Cliente/${id}`);
+  }
 }

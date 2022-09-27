@@ -1,4 +1,5 @@
 ﻿using AbonandoAndo.API.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -6,53 +7,54 @@ namespace AbonandoAndo.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ClienteController : ControllerBase
+    public class ConceptoController : ControllerBase
     {
         private readonly AbonandoAndo2Context _abonandoAndo2Context;
 
-        public ClienteController(AbonandoAndo2Context abonandoAndo2Context)
+        public ConceptoController(AbonandoAndo2Context abonandoAndo2Context)
         {
             _abonandoAndo2Context = abonandoAndo2Context;
         }
 
-        // GET: api/Cliente
+        // GET: api/Concepto
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Cliente>>> Get()
-        {
-            try { 
-                if (_abonandoAndo2Context.Clientes == null)
-                {
-                    return NotFound();
-                }
-
-                return await _abonandoAndo2Context.Clientes.ToListAsync();
-            }
-            catch (Exception e)
-            {
-                throw new Exception(e.Message);
-            }
-        }
-
-        // GET: api/Cliente/5
-        [HttpGet("{id}")]
-
-        public async Task<ActionResult<Cliente>> GetId(int id)
+        public async Task<ActionResult<IEnumerable<Concepto>>> Get()
         {
             try
             {
-                if (_abonandoAndo2Context.Clientes == null)
+                if (_abonandoAndo2Context.Conceptos == null)
                 {
                     return NotFound();
                 }
 
-                 var cliente = await _abonandoAndo2Context.Clientes.FindAsync(id);
+                return await _abonandoAndo2Context.Conceptos.ToListAsync();
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
 
-                if (cliente == null)
+        // GET: api/Concepto/5
+        [HttpGet("{id}")]
+
+        public async Task<ActionResult<Concepto>> GetId(int id)
+        {
+            try
+            {
+                if (_abonandoAndo2Context.Conceptos == null)
                 {
                     return NotFound();
                 }
 
-                return cliente;
+                var concepto = await _abonandoAndo2Context.Conceptos.FindAsync(id);
+
+                if (concepto == null)
+                {
+                    return NotFound();
+                }
+
+                return concepto;
 
             }
             catch (Exception e)
@@ -62,18 +64,18 @@ namespace AbonandoAndo.API.Controllers
             }
         }
 
-        // PUT: api/Cliente/5
+        // PUT: api/Concepto/5
         [HttpPut("{id}")]
 
-        public async Task<IActionResult> Update(int id, Cliente cliente)
+        public async Task<IActionResult> Update(int id, Concepto concepto)
         {
 
-            if (id != cliente.IdCliente)
+            if (id != concepto.IdConcepto)
             {
                 return BadRequest();
             }
 
-            _abonandoAndo2Context.Entry(cliente).State = EntityState.Modified;
+            _abonandoAndo2Context.Entry(concepto).State = EntityState.Modified;
 
             try
             {
@@ -82,7 +84,7 @@ namespace AbonandoAndo.API.Controllers
 
             catch (DbUpdateConcurrencyException e)
             {
-                if (!ClienteExist(id))
+                if (!ConceptoExist(id))
                 {
                     return NotFound();
                 }
@@ -96,47 +98,48 @@ namespace AbonandoAndo.API.Controllers
 
         }
 
-        // POST: api/Cliente
+        // POST: api/Concepto
 
         [HttpPost]
 
-        public async Task <ActionResult<Cliente>> Create(Cliente cliente)
+        public async Task<ActionResult<Concepto>> Create(Concepto concepto)
         {
             if (_abonandoAndo2Context == null)
             {
-                return Problem("Entity set 'DataContext.Cliente' is null");
+                return Problem("Entity set 'DataContext.Concepto' is null");
             }
-            _abonandoAndo2Context.Clientes.Add(cliente);
+            _abonandoAndo2Context.Conceptos.Add(concepto);
             await _abonandoAndo2Context.SaveChangesAsync();
 
-            return CreatedAtAction("Get", new { id = cliente.IdCliente }, cliente);
+            return CreatedAtAction("Get", new { id = concepto.IdConcepto }, concepto);
         }
 
-        // DELETE: api/Cliente/5
+        // DELETE: api/Concepto/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            if (_abonandoAndo2Context.Clientes == null)
+            if (_abonandoAndo2Context.Conceptos == null)
             {
                 return NotFound();
             }
-            var cliente = await _abonandoAndo2Context.Clientes.FindAsync(id);
-            if (cliente == null)
+            var concepto = await _abonandoAndo2Context.Conceptos.FindAsync(id);
+            if (concepto == null)
             {
                 return NotFound();
             }
 
-            _abonandoAndo2Context.Clientes.Remove(cliente);
+            _abonandoAndo2Context.Conceptos.Remove(concepto);
             await _abonandoAndo2Context.SaveChangesAsync();
 
             return NoContent();
         }
 
 
-        private bool ClienteExist(int id)
+        private bool ConceptoExist(int id)
         {
-            return (_abonandoAndo2Context.Clientes?.Any(e => e.IdCliente == id)).GetValueOrDefault();
+            return (_abonandoAndo2Context.Conceptos?.Any(e => e.IdConcepto == id)).GetValueOrDefault();
         }
 
     }
 }
+

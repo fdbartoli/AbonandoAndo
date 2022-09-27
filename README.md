@@ -7,13 +7,15 @@
 <li>MSSQL
 <li>Entity Framework
 <li>WEB API
-<li>ANGULAR
+<li>Angular
 </ul>
 
 <h3>Resources:</h3>
 <ul>
-<li><a href=#>Data Base .BAK</a>
+<li><a href=#>Data Base .BAK</a><br>
 </ul>
+
+
 
 <h3>Collaborators:</h3>
 <ul>

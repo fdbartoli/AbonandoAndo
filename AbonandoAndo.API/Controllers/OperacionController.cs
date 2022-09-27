@@ -1,58 +1,61 @@
 ﻿using AbonandoAndo.API.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Net;
 
 namespace AbonandoAndo.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ClienteController : ControllerBase
+    public class OperacionController : ControllerBase
     {
         private readonly AbonandoAndo2Context _abonandoAndo2Context;
 
-        public ClienteController(AbonandoAndo2Context abonandoAndo2Context)
+        public OperacionController(AbonandoAndo2Context abonandoAndo2Context)
         {
             _abonandoAndo2Context = abonandoAndo2Context;
         }
 
-        // GET: api/Cliente
+        // GET: api/Operacion
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Cliente>>> Get()
-        {
-            try { 
-                if (_abonandoAndo2Context.Clientes == null)
-                {
-                    return NotFound();
-                }
-
-                return await _abonandoAndo2Context.Clientes.ToListAsync();
-            }
-            catch (Exception e)
-            {
-                throw new Exception(e.Message);
-            }
-        }
-
-        // GET: api/Cliente/5
-        [HttpGet("{id}")]
-
-        public async Task<ActionResult<Cliente>> GetId(int id)
+        public async Task<ActionResult<IEnumerable<Operacion>>> Get()
         {
             try
             {
-                if (_abonandoAndo2Context.Clientes == null)
+                if (_abonandoAndo2Context.Operacions == null)
                 {
                     return NotFound();
                 }
 
-                 var cliente = await _abonandoAndo2Context.Clientes.FindAsync(id);
+                return await _abonandoAndo2Context.Operacions.ToListAsync();
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
 
-                if (cliente == null)
+        // GET: api/Operacion/5
+        [HttpGet("{id}")]
+
+        public async Task<ActionResult<Operacion>> GetId(int id)
+        {
+            try
+            {
+                if (_abonandoAndo2Context.Operacions == null)
                 {
                     return NotFound();
                 }
 
-                return cliente;
+                var operacion = await _abonandoAndo2Context.Operacions.FindAsync(id);
+
+                if (operacion == null)
+                {
+                    return NotFound();
+                }
+
+                return operacion;
 
             }
             catch (Exception e)
@@ -62,18 +65,18 @@ namespace AbonandoAndo.API.Controllers
             }
         }
 
-        // PUT: api/Cliente/5
+        // PUT: api/Operacion/5
         [HttpPut("{id}")]
 
-        public async Task<IActionResult> Update(int id, Cliente cliente)
+        public async Task<IActionResult> Update(int id, Operacion operacion)
         {
 
-            if (id != cliente.IdCliente)
+            if (id != operacion.IdOperacion)
             {
                 return BadRequest();
             }
 
-            _abonandoAndo2Context.Entry(cliente).State = EntityState.Modified;
+            _abonandoAndo2Context.Entry(operacion).State = EntityState.Modified;
 
             try
             {
@@ -82,7 +85,7 @@ namespace AbonandoAndo.API.Controllers
 
             catch (DbUpdateConcurrencyException e)
             {
-                if (!ClienteExist(id))
+                if (!OperacionExist(id))
                 {
                     return NotFound();
                 }
@@ -93,49 +96,47 @@ namespace AbonandoAndo.API.Controllers
             }
 
             return NoContent();
-
         }
 
-        // POST: api/Cliente
+        // POST: api/Operacion
 
         [HttpPost]
 
-        public async Task <ActionResult<Cliente>> Create(Cliente cliente)
+        public async Task<ActionResult<Operacion>> Create(Operacion operacion)
         {
             if (_abonandoAndo2Context == null)
             {
-                return Problem("Entity set 'DataContext.Cliente' is null");
+                return Problem("Entity set 'DataContext.Operacion' is null");
             }
-            _abonandoAndo2Context.Clientes.Add(cliente);
+            _abonandoAndo2Context.Operacions.Add(operacion);
             await _abonandoAndo2Context.SaveChangesAsync();
 
-            return CreatedAtAction("Get", new { id = cliente.IdCliente }, cliente);
+            return CreatedAtAction("Get", new { id = operacion.IdOperacion }, operacion);
         }
 
-        // DELETE: api/Cliente/5
+        // DELETE: api/Operacion/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            if (_abonandoAndo2Context.Clientes == null)
+            if (_abonandoAndo2Context.Operacions == null)
             {
                 return NotFound();
             }
-            var cliente = await _abonandoAndo2Context.Clientes.FindAsync(id);
-            if (cliente == null)
+            var operacion = await _abonandoAndo2Context.Operacions.FindAsync(id);
+            if (operacion == null)
             {
                 return NotFound();
             }
 
-            _abonandoAndo2Context.Clientes.Remove(cliente);
+            _abonandoAndo2Context.Operacions.Remove(operacion);
             await _abonandoAndo2Context.SaveChangesAsync();
 
             return NoContent();
         }
 
-
-        private bool ClienteExist(int id)
+        private bool OperacionExist(int id)
         {
-            return (_abonandoAndo2Context.Clientes?.Any(e => e.IdCliente == id)).GetValueOrDefault();
+            return (_abonandoAndo2Context.Operacions?.Any(e => e.IdOperacion == id)).GetValueOrDefault();
         }
 
     }
