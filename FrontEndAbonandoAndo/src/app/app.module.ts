@@ -13,6 +13,9 @@ import { HomeComponent } from './home/home/home.component';
 import { AddEditClienteComponent } from './cliente/add-edit-cliente/add-edit-cliente.component';
 import { ShowOperacionComponent } from './operaciones/show-operacion/show-operacion.component';
 import { AddEditOperacionComponent } from './operaciones/add-edit-operacion/add-edit-operacion.component';
+import { HeaderComponent } from './shared/header/header.component';
+import { SidebarComponent } from './shared/sidebar/sidebar.component';
+import { FooterComponent } from './shared/footer/footer.component';
 
 
 @NgModule({
@@ -24,6 +27,9 @@ import { AddEditOperacionComponent } from './operaciones/add-edit-operacion/add-
     AddEditClienteComponent,
     ShowOperacionComponent,
     AddEditOperacionComponent,
+    HeaderComponent,
+    SidebarComponent,
+    FooterComponent,
 
   ],
   imports: [
