@@ -7,7 +7,7 @@ import { ShowOperacionComponent } from './operaciones/show-operacion/show-operac
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'clientes', component: ShowClienteComponent },
-  { path:  'operaciones', component : ShowOperacionComponent}
+  { path:  'operaciones', component : ShowOperacionComponent},
 ];
 
 @NgModule({
