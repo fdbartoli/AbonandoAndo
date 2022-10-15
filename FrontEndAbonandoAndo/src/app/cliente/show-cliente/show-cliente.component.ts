@@ -46,7 +46,7 @@ export class ShowClienteComponent implements OnInit {
   }
 
   delete(item:any){
-    if(confirm(`¿Desea eliminar este cliente? - CUIL: ${item.cuil}?`)){
+    if(confirm(`¿Desea eliminar este cliente?  \n ID: ${item.idCliente} \n Nombre: ${item.nombres} ${item.apellidos} \n CUIL: ${item.cuil}?`)){
       this.service.deleteCliente(item.idCliente).subscribe(res=>{
         var closeModalBtn = document.getElementById('add-edit-modal-close');
       if(closeModalBtn){

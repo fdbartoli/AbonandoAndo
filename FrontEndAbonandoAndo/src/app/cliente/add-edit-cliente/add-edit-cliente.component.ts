@@ -29,7 +29,7 @@ export class AddEditClienteComponent implements OnInit {
     this.cuil=this.cliente.cuil;
     this.apellidos=this.cliente.apellidos;
     this.nombres=this.cliente.nombres;
-    this.domicilio=this.domicilio;
+    this.domicilio=this.cliente.domicilio;
     this.telefono=this.cliente.telefono;
     this.mail=this.cliente.mail;
     this.clienteList$ = this.service.getClienteList();
