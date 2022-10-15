@@ -5,10 +5,10 @@ namespace AbonandoAndo.API.Models
 {
     public partial class Cliente
     {
-        //public Cliente()
-        //{
-        //    Comprobantes = new HashSet<Comprobante>();
-        //}
+        public Cliente()
+        {
+            Comprobantes = new HashSet<Comprobante>();
+        }
 
         public int IdCliente { get; set; }
         public long Cuil { get; set; }
@@ -18,6 +18,6 @@ namespace AbonandoAndo.API.Models
         public string Telefono { get; set; } = null!;
         public string? Mail { get; set; }
 
-        //public virtual ICollection<Comprobante> Comprobantes { get; set; }
+        public virtual ICollection<Comprobante> Comprobantes { get; set; }
     }
 }
