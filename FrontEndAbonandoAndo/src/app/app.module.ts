@@ -16,6 +16,10 @@ import { HeaderComponent } from './shared/header/header.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { LoginComponent } from './auth/login/login.component';
+import { CuentaCorrienteComponent } from './cuenta-corriente/cuenta-corriente.component';
+
+
+
 
 
 @NgModule({
@@ -30,7 +34,7 @@ import { LoginComponent } from './auth/login/login.component';
     SidebarComponent,
     FooterComponent,
     LoginComponent,
-
+    CuentaCorrienteComponent,
   ],
   imports: [
     BrowserModule,

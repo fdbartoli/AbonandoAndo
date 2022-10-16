@@ -89,20 +89,20 @@ namespace AbonandoAndo.API.Models
 
                 entity.Property(e => e.IdOperacion).HasColumnName("ID_OPERACION");
 
-                //entity.HasOne(d => d.IdClienteNavigation)
-                    //.WithMany(p => p.Comprobantes)
-                    //.HasForeignKey(d => d.IdCliente)
-                    //.HasConstraintName("FK_ID_CLIENTE");
+                entity.HasOne(d => d.IdClienteNavigation)
+                    .WithMany(p => p.Comprobantes)
+                    .HasForeignKey(d => d.IdCliente)
+                    .HasConstraintName("FK_ID_CLIENTE");
 
-                //entity.HasOne(d => d.IdConceptoNavigation)
-                //    .WithMany(p => p.Comprobantes)
-                //    .HasForeignKey(d => d.IdConcepto)
-                //    .HasConstraintName("FK_ID_CONCEPTO");
+                entity.HasOne(d => d.IdConceptoNavigation)
+                    .WithMany(p => p.Comprobantes)
+                    .HasForeignKey(d => d.IdConcepto)
+                    .HasConstraintName("FK_ID_CONCEPTO");
 
-                //entity.HasOne(d => d.IdOperacionNavigation)
-                //    .WithMany(p => p.Comprobantes)
-                //    .HasForeignKey(d => d.IdOperacion)
-                //    .HasConstraintName("FK_ID_OPERACION");
+                entity.HasOne(d => d.IdOperacionNavigation)
+                    .WithMany(p => p.Comprobantes)
+                    .HasForeignKey(d => d.IdOperacion)
+                    .HasConstraintName("FK_ID_OPERACION");
             });
 
             modelBuilder.Entity<Concepto>(entity =>
