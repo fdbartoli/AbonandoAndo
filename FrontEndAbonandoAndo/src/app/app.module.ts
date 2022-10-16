@@ -8,7 +8,6 @@ import { AppComponent } from './app.component';
 import { ShowClienteComponent } from './cliente/show-cliente/show-cliente.component';
 
 import {ClienteService} from './cliente.service';
-import { SideBarComponent } from './shared/side-bar/side-bar.component';
 import { HomeComponent } from './home/home/home.component';
 import { AddEditClienteComponent } from './cliente/add-edit-cliente/add-edit-cliente.component';
 import { ShowOperacionComponent } from './operaciones/show-operacion/show-operacion.component';
@@ -16,13 +15,13 @@ import { AddEditOperacionComponent } from './operaciones/add-edit-operacion/add-
 import { HeaderComponent } from './shared/header/header.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { FooterComponent } from './shared/footer/footer.component';
+import { LoginComponent } from './auth/login/login.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ShowClienteComponent,
-    SideBarComponent,
     HomeComponent,
     AddEditClienteComponent,
     ShowOperacionComponent,
@@ -30,6 +29,7 @@ import { FooterComponent } from './shared/footer/footer.component';
     HeaderComponent,
     SidebarComponent,
     FooterComponent,
+    LoginComponent,
 
   ],
   imports: [
