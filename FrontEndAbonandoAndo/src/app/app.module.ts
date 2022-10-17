@@ -13,6 +13,7 @@ import { HomeComponent } from './home/home/home.component';
 import { AddEditClienteComponent } from './cliente/add-edit-cliente/add-edit-cliente.component';
 import { ShowOperacionComponent } from './operaciones/show-operacion/show-operacion.component';
 import { AddEditOperacionComponent } from './operaciones/add-edit-operacion/add-edit-operacion.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { AddEditOperacionComponent } from './operaciones/add-edit-operacion/add-
     AddEditClienteComponent,
     ShowOperacionComponent,
     AddEditOperacionComponent,
+    LoginComponent,
 
   ],
   imports: [
