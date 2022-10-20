@@ -18,7 +18,7 @@ a{
     border-radius: 30px;
     width: 200px;
     height: 300px;
-    background-color:#ccc;
+    background-color:rgb(34, 127, 233);
 }
 
 #box:hover {
