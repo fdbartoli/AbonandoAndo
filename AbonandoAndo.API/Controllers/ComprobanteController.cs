@@ -4,6 +4,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AbonandoAndo.API.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]       
     public class ComprobanteController : Controller
     {
         private readonly AbonandoAndo2Context _abonandoAndo2Context;
