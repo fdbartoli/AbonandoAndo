@@ -1,60 +1,127 @@
 <div class="container-fluid card">
   <div class="m-2 p-4">
     <div class="row">
-      <div class="col-lg-3 col-6">
-        <div class="small-box bg-info">
-          <div class="inner pt-5">
-            <h3>Clientes</h3>
+      <div class="col-md-3">
+        <div class="card card-ligth collapsed-card">
+          <div class="card-header">
+            <div class="small-box bg-info">
+              <a routerLink="/clientes">
+                <div class="inner pl-2 pt-5 pb-3">
+                  <h3>Clientes</h3>
+                </div>
+                <div class="icon">
+                  <i class="fas fa-user-plus"></i>
+                </div>
+              </a>
+            </div>
+
+            <div class="card-tools">
+              <button
+                type="button"
+                class="btn btn-tool"
+                data-card-widget="collapse"
+              >
+                <i class="bi bi-info-circle h5"></i>
+              </button>
+            </div>
           </div>
-          <div class="icon">
-            <i class="fas fa-user-plus"></i>
+
+          <div class="card-body">
+            <p>Altas, bajas, consulta y modificación de datos de clientes.</p>
           </div>
-          <a routerLink="/clientes" class="small-box-footer">
-            Ver más <i class="fas fa-arrow-circle-right"></i>
-          </a>
         </div>
       </div>
 
-      <div class="col-lg-3 col-6">
-        <div class="small-box bg-success">
-          <div class="inner pt-5">
-            <h3>Cuenta</h3>
+      <div class="col-md-3">
+        <div class="card card-ligth collapsed-card">
+          <div class="card-header">
+            <div class="small-box bg-success">
+              <a routerLink="/cuenta">
+                <div class="inner pl-2 pt-5 pb-3">
+                  <h3>Cuenta</h3>
+                </div>
+                <div class="icon">
+                  <i class="far fa-calendar-alt"></i>
+                </div>
+              </a>
+            </div>
+
+            <div class="card-tools">
+              <button
+                type="button"
+                class="btn btn-tool"
+                data-card-widget="collapse"
+              >
+                <i class="bi bi-info-circle h5"></i>
+              </button>
+            </div>
           </div>
-          <div class="icon">
-            <i class="far fa-calendar-alt"></i>
+
+          <div class="card-body">
+            <p>Falta el texto para cuenta.</p>
           </div>
-          <a routerLink="/cuenta" class="small-box-footer">
-            Ver más <i class="fas fa-arrow-circle-right"></i>
-          </a>
         </div>
       </div>
 
-      <div class="col-lg-3 col-6">
-        <div class="small-box bg-warning">
-          <div class="inner pt-5">
-            <h3 class="text-light">Comprobantes</h3>
+      <div class="col-md-3">
+        <div class="card card-ligth collapsed-card">
+          <div class="card-header">
+            <div class="small-box bg-warning">
+              <a routerLink="/comprobantes">
+                <div class="inner pl-2 pt-5 pb-3">
+                  <h3 class="text-light">Comprobantes</h3>
+                </div>
+                <div class="icon">
+                  <i class="far fa-copy"></i>
+                </div>
+              </a>
+            </div>
+
+            <div class="card-tools">
+              <button
+                type="button"
+                class="btn btn-tool"
+                data-card-widget="collapse"
+              >
+                <i class="bi bi-info-circle h5"></i>
+              </button>
+            </div>
           </div>
-          <div class="icon">
-            <i class="fas fa-chart-pie"></i>
+
+          <div class="card-body">
+            <p>Ingreso y consulta de comprobantes de ventas y cobranzas.</p>
           </div>
-          <a routerLink="/comprobantes" class="small-box-footer">
-            <span class="text-light">
-              Ver más <i class="fas fa-arrow-circle-right"></i>
-            </span>
-          </a>
         </div>
       </div>
-      <div class="col-lg-3 col-6">
-        <div class="small-box bg-danger">
-          <div class="inner pt-5">
-            <h3>Reportes</h3>
+
+      <div class="col-md-3">
+        <div class="card card-ligth collapsed-card">
+          <div class="card-header">
+            <div class="small-box bg-danger">
+              <a routerLink="/cuenta">
+                <div class="inner pl-2 pt-5 pb-3">
+                  <h3>Reportes</h3>
+                </div>
+                <div class="icon">
+                  <i class="fas fa-chart-pie"></i>
+                </div>
+              </a>
+            </div>
+
+            <div class="card-tools">
+              <button
+                type="button"
+                class="btn btn-tool"
+                data-card-widget="collapse"
+              >
+                <i class="bi bi-info-circle h5"></i>
+              </button>
+            </div>
           </div>
-          <div class="icon">
-            <i class="fas fa-chart-pie"></i>
+
+          <div class="card-body">
+            <p>Consulta y emisión de informes y cuentas corrientes.</p>
           </div>
-          <a routerLink="/reportes" class="small-box-footer">
-            Ver más <i class="fas fa-arrow-circle-right"></i>
-          </a>
         </div>
       </div>
     </div>
