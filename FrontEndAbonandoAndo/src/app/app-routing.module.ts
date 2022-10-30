@@ -6,19 +6,12 @@ import { HomeComponent } from './home/home/home.component';
 import { LoginComponent } from './login/login.component';
 import { ShowOperacionComponent } from './operaciones/show-operacion/show-operacion.component';
 
+
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
-  {
-    path: 'clientes',
-    component: ShowClienteComponent,
-    canActivate: [AuthGuard],
-  },
-  {
-    path: 'operaciones',
-    component: ShowOperacionComponent,
-    canActivate: [AuthGuard],
-  },
+  { path: 'clientes', component: ShowClienteComponent, canActivate: [AuthGuard],},
+  { path: 'operaciones', component: ShowOperacionComponent, canActivate: [AuthGuard],},
 ];
 
 @NgModule({
