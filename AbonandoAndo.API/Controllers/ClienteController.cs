@@ -19,25 +19,27 @@ namespace AbonandoAndo.API.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Cliente>>> Get()
         {
-            try { 
-                if (_abonandoAndo2Context.Clientes == null)
-                {
-                    return NotFound();
-                }
 
-                return await _abonandoAndo2Context.Clientes.ToListAsync();
+            try
+            {
+                var result = await _abonandoAndo2Context.Clientes.FromSqlInterpolated($"exec select_prueba").ToListAsync();
+
+                return Ok(result);
             }
             catch (Exception e)
             {
                 throw new Exception(e.Message);
             }
+
+
         }
 
-        // GET: api/Cliente/5
-        [HttpGet("{id}")]
+        //GET: api/Cliente/5
+        [HttpGet("{cuil}")]
 
-        public async Task<ActionResult<Cliente>> GetId(int id)
+        public async Task<ActionResult<Cliente>> GetId(long cuil)
         {
+
             try
             {
                 if (_abonandoAndo2Context.Clientes == null)
@@ -45,21 +47,22 @@ namespace AbonandoAndo.API.Controllers
                     return NotFound();
                 }
 
-                 var cliente = await _abonandoAndo2Context.Clientes.FindAsync(id);
+                var result = await _abonandoAndo2Context.Clientes.FromSqlInterpolated($"exec select_cliente_cuil @cuil = {cuil}").ToListAsync();
 
-                if (cliente == null)
+                var resultTemp = result.ToString();
+                if (result.Count == 0)
                 {
                     return NotFound();
                 }
 
-                return cliente;
+                return Ok(result);
 
             }
             catch (Exception e)
             {
-
                 throw new Exception(e.Message);
             }
+
         }
 
         // PUT: api/Cliente/5
@@ -100,7 +103,7 @@ namespace AbonandoAndo.API.Controllers
 
         [HttpPost]
 
-        public async Task <ActionResult<Cliente>> Create(Cliente cliente)
+        public async Task<ActionResult<Cliente>> Create(Cliente cliente)
         {
             if (_abonandoAndo2Context == null)
             {
@@ -116,20 +119,35 @@ namespace AbonandoAndo.API.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
+
             if (_abonandoAndo2Context.Clientes == null)
             {
                 return NotFound();
             }
+
             var cliente = await _abonandoAndo2Context.Clientes.FindAsync(id);
+
             if (cliente == null)
             {
                 return NotFound();
             }
 
-            _abonandoAndo2Context.Clientes.Remove(cliente);
-            await _abonandoAndo2Context.SaveChangesAsync();
 
+            await _abonandoAndo2Context.Clientes.FromSqlInterpolated($"exec delete_cliente_id @id = {id}").ToListAsync();
             return NoContent();
+
+            //var cliente = await _abonandoAndo2Context.Clientes.FindAsync(id);
+            //if (cliente == null)
+            //{
+            //    return NotFound();
+            //}
+
+            //FromSqlInterpolated($"delete_cliente_id{id}").ToListAsync();
+
+            //_abonandoAndo2Context.Clientes.Remove(cliente);
+            //await _abonandoAndo2Context.SaveChangesAsync();
+
+            //return NoContent();
         }
 
 
