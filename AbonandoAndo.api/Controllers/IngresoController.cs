@@ -1,30 +1,30 @@
-﻿
-using AbonandoAndo.api.Models;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using AbonandoAndo.api.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace AbonandoAndo.api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ClienteController : ControllerBase
+    public class IngresoController : ControllerBase
     {
 
         private readonly AbonandoAndoContext _abonandoAndoContext;
 
-        public ClienteController(AbonandoAndoContext abonandoAndoContext)
+        public IngresoController(AbonandoAndoContext abonandoAndoContext)
         {
             _abonandoAndoContext = abonandoAndoContext;
         }
 
 
-        // GET: api/Cliente
+        // GET: api/Egreso
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Cliente>>> Get()
+        public async Task<ActionResult<IEnumerable<Ingreso>>> Get()
         {
             try
             {
-                var result = await _abonandoAndoContext.Clientes.FromSqlInterpolated($"exec select_all_cliente").ToListAsync();
+                var result = await _abonandoAndoContext.Egresos.FromSqlInterpolated($"exec select_all_cliente").ToListAsync();
 
                 return Ok(result);
             }
@@ -34,20 +34,20 @@ namespace AbonandoAndo.api.Controllers
             }
         }
 
-        //GET: api/Cliente/5
+        //GET: api/Egreso/5
         [HttpGet("{cuil}")]
 
-        public async Task<ActionResult<Cliente>> GetIngresoCuil(string cuil)
+        public async Task<ActionResult<Ingreso>> GetIngresoCuil(string cuil)
         {
 
             try
             {
-                if (_abonandoAndoContext.Clientes == null)
+                if (_abonandoAndoContext.Egresos == null)
                 {
                     return NotFound();
                 }
 
-                var result = await _abonandoAndoContext.Clientes.FromSqlInterpolated($"select_cliente_egreso_cuil @cuil = {cuil}").ToListAsync();
+                var result = await _abonandoAndoContext.Egresos.FromSqlInterpolated($"select_cliente_ingreso_cuil @cuil = {cuil}").ToListAsync();
 
                 var resultTemp = result.ToString();
                 if (result.Count == 0)
@@ -67,3 +67,4 @@ namespace AbonandoAndo.api.Controllers
 
     }
 }
+
