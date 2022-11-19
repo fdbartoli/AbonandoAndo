@@ -3,74 +3,62 @@
     <div>
       <h2>Clientes</h2>
     </div>
-    <div class="d-flex justify-content-end">
-      <button
-        type="button"
-        class="btn btn-success float-end m-2 pe-2"
-        data-bs-toggle="modal"
-        data-bs-target="#staticBackdrop"
-        (click)="modalAdd()"
-      >
-        <i class="bi bi-plus-circle"></i>
-        Agregar cliente
-      </button>
-    </div>
+    <div class="d-flex justify-content-center">
+      <div class="col-md-11">
+        <div class="d-flex justify-content-end">
+          <button
+            type="button"
+            class="btn btn-success float-end mb-2"
+            data-bs-toggle="modal"
+            data-bs-target="#staticBackdrop"
+            (click)="modalAdd()"
+          >
+            <i class="bi bi-plus-circle"></i>
+            Agregar cliente
+          </button>
+        </div>
 
-    <table class="table table-striped">
-      <thead>
-        <th>Id</th>
-        <th>Cuil</th>
-        <th>Apellidos</th>
-        <th>Nombres</th>
-        <th>Domicilio</th>
-        <th>Teléfono</th>
-        <th>Mail</th>
-        <th>Opciones</th>
-      </thead>
-      <tbody>
-        <tr *ngFor="let item of clienteList$ | async">
-          <td>{{ item.idCliente }}</td>
-          <td>{{ item.cuil }}</td>
-          <td>{{ item.apellidos }}</td>
-          <td>{{ item.nombres }}</td>
-          <td>{{ item.domicilio }}</td>
-          <td>{{ item.telefono }}</td>
-          <td>{{ item.mail }}</td>
-          <td>
-            <div class="dropdown">
-              <button
-                class="btn btn-ligth"
-                type="button"
-                data-toggle="dropdown"
-                aria-expanded="false"
-              >
-                <i class="bi bi-three-dots"></i>
-              </button>
-              <div class="dropdown-menu dropdown-menu-right">
-                <a class="dropdown-item" href="#">
+        <div class="card">
+          <table class="table table-striped">
+            <thead>
+              <th>Id</th>
+              <th>Cuil</th>
+              <th>Apellidos</th>
+              <th>Nombres</th>
+              <th>Domicilio</th>
+              <th>Teléfono</th>
+              <th>Mail</th>
+              <th>Opciones</th>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of clienteList$ | async">
+                <td>{{ item.idCliente }}</td>
+                <td>{{ item.cuil }}</td>
+                <td>{{ item.apellidos }}</td>
+                <td>{{ item.nombres }}</td>
+                <td>{{ item.domicilio }}</td>
+                <td>{{ item.telefono }}</td>
+                <td>{{ item.mail }}</td>
+                <td>
                   <button
-                    class="btn btn-ligth mr-2 mb-1"
+                    class="btn btn-ligth"
                     (click)="modalEdit(item)"
                     data-bs-toggle="modal"
                     data-bs-target="#staticBackdrop"
                   >
-                    <i class="bi bi-pencil-square"></i> Editar
+                    <i class="bi bi-pencil-square text-muted"></i>
                   </button>
-                </a>
-                <a class="dropdown-item" href="#">
-                  <button
-                    class="btn btn-ligth mr-2 mb-1"
-                    (click)="delete(item)"
-                  >
-                    <i class="bi bi-trash"></i> Eliminar
+
+                  <button class="btn btn-ligth" (click)="delete(item)">
+                    <i class="bi bi-trash text-muted"></i>
                   </button>
-                </a>
-              </div>
-            </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
 
     <!-- Add-Edit Cliente Modal -->
     <div

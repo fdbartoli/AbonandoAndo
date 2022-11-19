@@ -17,47 +17,10 @@
       </a>
     </li>
     <!-- User Dropdown Menu -->
-    <li class="nav-item dropdown">
-      <a
-        class="nav-link"
-        data-toggle="dropdown"
-        role="button"
-        aria-expanded="false"
-        href="#"
+    <li class="nav-item text-bold">
+      <a href="" class="nav-link" (click)="logout()"
+        ><i class="bi bi-power pr-1"></i> Salir</a
       >
-        <div class="user-panel ml-auto d-flex">
-          <div class="image">
-            <img
-              src="./assets/dist/img/AdminLTELogo.png"
-              class="img-circle elevation-2"
-              alt="User Image"
-            />
-          </div>
-          <div class="info">
-            <a href="#" class="d-block">Nombre Usuario</a>
-          </div>
-        </div>
-      </a>
-      <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-        <span class="dropdown-item text-center font-weight-bold"
-          >¡Hola, Nombre Usuario!</span
-        >
-        <div class="dropdown-divider"></div>
-        <a href="#" class="dropdown-item">
-          <i class="bi bi-person-fill text-muted pr-1"></i> Mi cuenta
-        </a>
-        <div class="dropdown-divider"></div>
-
-        <a href="#" class="dropdown-item"
-          ><i class="bi bi-gear-fill text-muted pr-1"></i> Configuración
-        </a>
-
-        <div class="dropdown-divider"></div>
-
-        <a href="" class="nav-link" (click)="logout()"
-          ><i class="bi bi-power pr-1"></i> Salir</a
-        >
-      </div>
     </li>
   </ul>
 </nav>
