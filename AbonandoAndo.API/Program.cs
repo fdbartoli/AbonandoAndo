@@ -1,4 +1,5 @@
-using AbonandoAndo.API.Models;
+
+using AbonandoAndo.api.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 var myAllowSpecificOrigins = "_myAllowSpecificOrigins";
@@ -9,7 +10,7 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddDbContext<AbonandoAndo2Context>();
+builder.Services.AddDbContext<AbonandoAndoContext>();
 
 //Enable CORS
 

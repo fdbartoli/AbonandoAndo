@@ -1,23 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace AbonandoAndo.API.Models
+namespace AbonandoAndo.api.Models;
+
+public partial class Cliente
 {
-    public partial class Cliente
-    {
-        public Cliente()
-        {
-            Comprobantes = new HashSet<Comprobante>();
-        }
+    public int Id { get; set; }
 
-        public int IdCliente { get; set; }
-        public long Cuil { get; set; }
-        public string Apellidos { get; set; } = null!;
-        public string Nombres { get; set; } = null!;
-        public string Domicilio { get; set; } = null!;
-        public string Telefono { get; set; } = null!;
-        public string? Mail { get; set; }
+    public string? Cuil { get; set; }
 
-        public virtual ICollection<Comprobante> Comprobantes { get; set; }
-    }
+    public string? Apellidos { get; set; }
+
+    public string? Nombres { get; set; }
+
+    public string? Domicilio { get; set; }
+
+    public string? Telefono { get; set; }
+
+    public string? Mail { get; set; }
+
+    public virtual ICollection<Egreso> Egresos { get; } = new List<Egreso>();
+
+    public virtual ICollection<Ingreso> Ingresos { get; } = new List<Ingreso>();
 }
