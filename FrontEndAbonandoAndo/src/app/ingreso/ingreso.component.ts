@@ -14,15 +14,15 @@ export class IngresoComponent implements OnInit {
 
   displayedColumns: string []= ["detalle", "fecha", "id", "idCliente", "monto"];
   dataSource! : Iingreso [];
-    ingreso : Iingreso ={
-    detalle: "asdfasfd",
-    fecha: new Date (),
-    id: 0,
-    idCliente: 0,
-    monto: 0,
+    ingreso   : Iingreso ={
+    detalle   : "",
+    fecha     : new Date (),
+    id        : 0,
+    idCliente : 0,
+    monto     : 0,
   }
 
-  cuil: number = 1;
+  cuil: string = "0";
 
   ngOnInit(): void {
   }
@@ -30,7 +30,7 @@ export class IngresoComponent implements OnInit {
 
   searchIngresoCuil(){
     console.log("ingreso antes de response", this.ingreso)
-    this.service.getPagosCuil("11111").subscribe(response =>{
+    this.service.getPagosCuil(this.cuil).subscribe(response =>{
       this.dataSource = response;
     console.log("response", response)
     console.log("ingreso despues", this.dataSource);

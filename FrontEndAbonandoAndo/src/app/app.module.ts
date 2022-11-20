@@ -19,7 +19,6 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { CuentaCorrienteComponent } from './cuenta-corriente/cuenta-corriente.component';
 import { ComprobanteComponent } from './comprobante/comprobante.component';
 import { IngresoComponent } from './ingreso/ingreso.component';
-import { IngresosComponent } from './ingresos/ingresos.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +35,6 @@ import { IngresosComponent } from './ingresos/ingresos.component';
     CuentaCorrienteComponent,
     ComprobanteComponent,
     IngresoComponent,
-    IngresosComponent
   ],
   imports: [
     BrowserModule,
