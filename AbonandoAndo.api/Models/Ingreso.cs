@@ -9,7 +9,7 @@ public partial class Ingreso
 
     public decimal? Monto { get; set; }
 
-    public DateTime? Fecha { get; set; }
+    public string? Fecha { get; set; }
 
     public string? Detalle { get; set; }
 

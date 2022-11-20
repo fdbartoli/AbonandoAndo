@@ -18,13 +18,13 @@ namespace AbonandoAndo.api.Controllers
         }
 
 
-        // post: api/Ingreso
+        // get: api/Ingreso
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Ingreso>>> Get()
         {
             try
             {
-                var result = await _abonandoAndoContext.Egresos.FromSqlInterpolated($"exec select_all_cliente").ToListAsync();
+                var result = await _abonandoAndoContext.Egresos.FromSqlInterpolated($"exec select_all_ingreso").ToListAsync();
 
                 return Ok(result);
             }
@@ -64,6 +64,22 @@ namespace AbonandoAndo.api.Controllers
             }
 
         }
+        // POST: api/Ingreso
+
+        [HttpPost]
+
+        public async Task<ActionResult<Cliente>> Create(Ingreso ingreso)
+        {
+            if (_abonandoAndoContext == null)
+            {
+                return Problem("Entity set 'DataContext.Cliente' is null");
+            }
+            _abonandoAndoContext.Ingresos.Add(ingreso);
+            await _abonandoAndoContext.SaveChangesAsync();
+
+            return CreatedAtAction("Get", new { id = ingreso.Id }, ingreso);
+        }
+
 
     }
 }
