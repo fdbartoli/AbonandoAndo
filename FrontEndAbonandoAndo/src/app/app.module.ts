@@ -18,6 +18,7 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { CuentaCorrienteComponent } from './cuenta-corriente/cuenta-corriente.component';
 import { ComprobanteComponent } from './comprobante/comprobante.component';
+import { IngresoComponent } from './ingreso/ingreso.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { ComprobanteComponent } from './comprobante/comprobante.component';
     FooterComponent,
     CuentaCorrienteComponent,
     ComprobanteComponent,
+    IngresoComponent
   ],
   imports: [
     BrowserModule,

@@ -18,7 +18,7 @@ namespace AbonandoAndo.api.Controllers
         }
 
 
-        // GET: api/Egreso
+        // post: api/Ingreso
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Ingreso>>> Get()
         {
@@ -34,7 +34,7 @@ namespace AbonandoAndo.api.Controllers
             }
         }
 
-        //GET: api/Egreso/5
+        //get: api/Ingreso/5
         [HttpGet("{cuil}")]
 
         public async Task<ActionResult<Ingreso>> GetIngresoCuil(string cuil)
@@ -47,7 +47,7 @@ namespace AbonandoAndo.api.Controllers
                     return NotFound();
                 }
 
-                var result = await _abonandoAndoContext.Egresos.FromSqlInterpolated($"select_cliente_ingreso_cuil @cuil = {cuil}").ToListAsync();
+                var result = await _abonandoAndoContext.Ingresos.FromSqlInterpolated($"select_cliente_ingreso_cuil @cuil = {cuil}").ToListAsync();
 
                 var resultTemp = result.ToString();
                 if (result.Count == 0)
