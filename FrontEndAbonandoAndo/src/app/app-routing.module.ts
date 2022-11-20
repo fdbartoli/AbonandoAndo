@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ShowClienteComponent } from './cliente/show-cliente/show-cliente.component';
 import { AuthGuard } from './guards/auth.guard';
 import { HomeComponent } from './home/home/home.component';
-import { IngresoComponent } from './ingreso/ingreso.component';
+import { IngresoComponent } from './ingreso/show-ingreso/ingreso.component';
 import { LoginComponent } from './login/login.component';
 import { ShowOperacionComponent } from './operaciones/show-operacion/show-operacion.component';
 

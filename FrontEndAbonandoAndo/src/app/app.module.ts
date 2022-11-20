@@ -18,7 +18,9 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { CuentaCorrienteComponent } from './cuenta-corriente/cuenta-corriente.component';
 import { ComprobanteComponent } from './comprobante/comprobante.component';
-import { IngresoComponent } from './ingreso/ingreso.component';
+import { IngresoComponent } from './ingreso/show-ingreso/ingreso.component';
+import { AddIngresoComponent } from './ingreso/add-ingreso/add-ingreso.component';
+
 
 @NgModule({
   declarations: [
@@ -35,6 +37,7 @@ import { IngresoComponent } from './ingreso/ingreso.component';
     CuentaCorrienteComponent,
     ComprobanteComponent,
     IngresoComponent,
+    AddIngresoComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { IngresoService } from '../ingreso.service';
-import { Iingreso } from '../models/Iingreso';
+import { IngresoService } from 'src/app/ingreso.service';
+import { Iingreso } from 'src/app/models/Iingreso';
+
+
 
 @Component({
   selector: 'app-ingreso',
@@ -23,6 +25,7 @@ export class IngresoComponent implements OnInit {
   }
 
   cuil: string = "0";
+  activatedAddIngresoComponent: boolean = false;
 
   ngOnInit(): void {
   }
@@ -37,11 +40,15 @@ export class IngresoComponent implements OnInit {
     },
     (error) => {
         alert("error");
-    });
+    });    
+  }
 
-    // this.dataSource = this.service.getPagosCuil("33333");
-    // console.log("despues click",a)
-    
+  modalAdd(){
+    this.activatedAddIngresoComponent = true;
+  }
+
+  modalClose(){
+    this.activatedAddIngresoComponent=false
   }
 
 }
