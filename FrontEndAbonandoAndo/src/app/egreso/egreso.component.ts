@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IngresoService } from 'src/app/ingreso.service';
 import { Iingreso } from 'src/app/models/Iingreso';
+import { EgresoService } from '../egreso.service';
 import { Iegreso } from '../models/Iegreso';
 
 
@@ -13,7 +14,7 @@ import { Iegreso } from '../models/Iegreso';
 })
 export class EgresoComponent implements OnInit {
 
-  constructor(private service: IngresoService) { }
+  constructor(private service: EgresoService) { }
 
   dataSource! : Iegreso [];
     ingreso   : Iegreso ={
@@ -32,7 +33,7 @@ export class EgresoComponent implements OnInit {
 
 
   searchIngresoCuil(){
-    this.service.getPagosCuil(this.cuil).subscribe(response =>{
+    this.service.getCobrosCuil(this.cuil).subscribe(response =>{
       this.dataSource = response;
     },
     (error) => {

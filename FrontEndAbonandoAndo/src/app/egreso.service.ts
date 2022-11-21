@@ -5,7 +5,7 @@ import { Iegreso } from './models/Iegreso';
 @Injectable({
   providedIn: 'root'
 })
-export class IngresoService {
+export class EgresoService {
 
   constructor(private http:HttpClient) { }
 
