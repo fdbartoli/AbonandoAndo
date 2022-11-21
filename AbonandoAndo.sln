@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbonandoAndo.api", "AbonandoAndo.api\AbonandoAndo.api.csproj", "{6CC3B049-07CF-4830-B9BA-DF506071A037}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbonandoAndo.Api", "AbonandoAndo.Api\AbonandoAndo.Api.csproj", "{11EA25B3-D70D-41A6-BD35-04569B9071D1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6CC3B049-07CF-4830-B9BA-DF506071A037}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6CC3B049-07CF-4830-B9BA-DF506071A037}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6CC3B049-07CF-4830-B9BA-DF506071A037}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6CC3B049-07CF-4830-B9BA-DF506071A037}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11EA25B3-D70D-41A6-BD35-04569B9071D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11EA25B3-D70D-41A6-BD35-04569B9071D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11EA25B3-D70D-41A6-BD35-04569B9071D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11EA25B3-D70D-41A6-BD35-04569B9071D1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

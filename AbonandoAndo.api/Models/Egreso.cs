@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace AbonandoAndo.api.Models;
+namespace AbonandoAndo.Api.Models;
 
 public partial class Egreso
 {
@@ -9,7 +9,7 @@ public partial class Egreso
 
     public decimal? Monto { get; set; }
 
-    public DateTime? Fecha { get; set; }
+    public string? Fecha { get; set; }
 
     public string? Detalle { get; set; }
 

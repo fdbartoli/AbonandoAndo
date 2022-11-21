@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace AbonandoAndo.api.Models;
+namespace AbonandoAndo.Api.Models;
 
 public partial class Cliente
 {

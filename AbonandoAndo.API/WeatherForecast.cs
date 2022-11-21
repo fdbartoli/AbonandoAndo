@@ -1,4 +1,4 @@
-namespace AbonandoAndo.api
+namespace AbonandoAndo.Api
 {
     public class WeatherForecast
     {

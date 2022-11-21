@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
-namespace AbonandoAndo.api.Models;
+namespace AbonandoAndo.Api.Models;
 
 public partial class AbonandoAndoContext : DbContext
 {
@@ -100,7 +100,8 @@ public partial class AbonandoAndoContext : DbContext
                 .IsUnicode(false)
                 .HasColumnName("DETALLE");
             entity.Property(e => e.Fecha)
-                .HasColumnType("date")
+                .HasMaxLength(50)
+                .IsUnicode(false)
                 .HasColumnName("FECHA");
             entity.Property(e => e.IdCliente).HasColumnName("ID_CLIENTE");
             entity.Property(e => e.Monto)
@@ -122,7 +123,8 @@ public partial class AbonandoAndoContext : DbContext
                 .IsUnicode(false)
                 .HasColumnName("DETALLE");
             entity.Property(e => e.Fecha)
-                .HasColumnType("date")
+                .HasMaxLength(50)
+                .IsUnicode(false)
                 .HasColumnName("FECHA");
             entity.Property(e => e.IdCliente).HasColumnName("ID_CLIENTE");
             entity.Property(e => e.Monto)
