@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class EmpresaService {
 
-  readonly clientAPIUrl = 'https://localhost:7231/api';
+  readonly clientAPIUrl = 'https://localhost:7084/api';
 
   constructor(private http:HttpClient) { }
 

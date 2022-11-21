@@ -18,13 +18,15 @@ export class IngresoComponent implements OnInit {
   dataSource! : Iingreso [];
     ingreso   : Iingreso ={
     detalle   : "",
-    fecha     : new Date (),
+    fecha     : "",
     id        : 0,
     idCliente : 0,
     monto     : 0,
   }
+  ingresoAdd: any;
 
   cuil: string = "0";
+  idCliente: number= 0;
   activatedAddIngresoComponent: boolean = false;
 
   ngOnInit(): void {
@@ -39,16 +41,27 @@ export class IngresoComponent implements OnInit {
     console.log("ingreso despues", this.dataSource);
     },
     (error) => {
-        alert("error");
+        alert("No se encontró el registro, vuelva a intentarlo!");
     });    
   }
 
   modalAdd(){
+
     this.activatedAddIngresoComponent = true;
   }
 
   modalClose(){
     this.activatedAddIngresoComponent=false
+  }
+
+  addIngrego(){  
+    this.service.addPago(this.dataSource).subscribe(response => {
+        alert ("Registro ingresado con éxito!")
+        console.log("response", response)      
+    },
+    (error) => {
+        alert("Error! Vuelva a intentarlo.");
+    });  
   }
 
 }

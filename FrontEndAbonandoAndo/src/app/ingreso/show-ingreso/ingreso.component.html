@@ -72,28 +72,26 @@
         </div>
         <div class="modal-body">
           <app-add-ingreso
-            [ingreso]="ingreso"
             *ngIf="activatedAddIngresoComponent"
           ></app-add-ingreso>
         </div>
       </div>
     </div>
-
-    <table class="table table-striped">
-        <thead>
-          <th>Id</th>
-          <th>Fecha</th>
-          <th>Detalle</th>
-          <th>Monto</th>
-        </thead>
-        <tbody>
-          <tr *ngFor="let item of dataSource!">
-            <td>{{ item.id }}</td>
-            <td>{{ item.fecha | date: 'dd/MM/YYYY' }}</td>
-            <td>{{ item.detalle | titlecase }}</td>
-            <td>{{ item.monto | currency }}</td>
-      </table>
-
-
-
 </div>
+
+
+<table class="table table-striped">
+  <thead>
+    <th>Id</th>
+    <th>Fecha</th>
+    <th>Detalle</th>
+    <th>Monto</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of dataSource!">
+      <td>{{ item.id }}</td>
+      <td>{{ item.fecha | titlecase }}</td>
+      <td>{{ item.detalle | titlecase }}</td>
+      <td>{{ item.monto | currency }}</td>
+</table>
+

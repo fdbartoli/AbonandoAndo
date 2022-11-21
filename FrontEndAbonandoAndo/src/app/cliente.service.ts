@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class ClienteService {
 
 
-  readonly clientAPIUrl = 'https://localhost:7106/api';
+  readonly clientAPIUrl = 'https://localhost:7084/api';
 
   constructor(private http:HttpClient) { }
 

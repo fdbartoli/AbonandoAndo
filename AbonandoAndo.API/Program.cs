@@ -1,5 +1,7 @@
 
-using AbonandoAndo.api.Models;
+
+using AbonandoAndo.Api.Models;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 var myAllowSpecificOrigins = "_myAllowSpecificOrigins";
@@ -34,6 +36,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+
 app.UseHttpsRedirection();
 
 app.UseCors(myAllowSpecificOrigins);
@@ -43,3 +46,5 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+// -- corrección A Possible Object Cycle was detected

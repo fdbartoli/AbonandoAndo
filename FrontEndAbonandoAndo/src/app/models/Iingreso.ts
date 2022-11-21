@@ -2,7 +2,7 @@ export interface Iingreso
 {
     id          : number;
     monto       : number;
-    fecha       : Date;
+    fecha       : string;
     detalle     : string;
     idCliente   : number;
 }
