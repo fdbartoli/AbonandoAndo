@@ -15,7 +15,7 @@ export class AddEditClienteComponent implements OnInit {
 
   @Input() cliente:any;
 
-  idCliente:number = 0;
+  id:number = 0;
   cuil:number = 0;
   apellidos:string = "";
   nombres:string="";
@@ -25,7 +25,7 @@ export class AddEditClienteComponent implements OnInit {
  
   ngOnInit(): void {
 
-    this.idCliente=this.cliente.idCliente;
+    this.id=this.cliente.id;
     this.cuil=this.cliente.cuil;
     this.apellidos=this.cliente.apellidos;
     this.nombres=this.cliente.nombres;
@@ -65,7 +65,7 @@ export class AddEditClienteComponent implements OnInit {
 
   updateCliente(){
     var cliente ={
-      idCliente:this.idCliente,
+      id:this.id,
       cuil:this.cuil,
       apellidos:this.apellidos,
       nombres:this.nombres,
@@ -73,8 +73,8 @@ export class AddEditClienteComponent implements OnInit {
       telefono:this.telefono,
       mail:this.mail,
     }
-    var idCliente:number = this.idCliente;
-    this.service.updateCiente(idCliente, cliente).subscribe(res =>{
+    var id:number = this.id;
+    this.service.updateCiente(id, cliente).subscribe(res =>{
       var closeModalBtn = document.getElementById('add-edit-modal-close');
       if(closeModalBtn){
         closeModalBtn.click();

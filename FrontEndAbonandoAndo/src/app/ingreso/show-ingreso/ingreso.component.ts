@@ -14,7 +14,6 @@ export class IngresoComponent implements OnInit {
 
   constructor(private service: IngresoService) { }
 
-  displayedColumns: string []= ["detalle", "fecha", "id", "idCliente", "monto"];
   dataSource! : Iingreso [];
     ingreso   : Iingreso ={
     detalle   : "",
@@ -34,11 +33,8 @@ export class IngresoComponent implements OnInit {
 
 
   searchIngresoCuil(){
-    console.log("ingreso antes de response", this.ingreso)
     this.service.getPagosCuil(this.cuil).subscribe(response =>{
       this.dataSource = response;
-    console.log("response", response)
-    console.log("ingreso despues", this.dataSource);
     },
     (error) => {
         alert("No se encontró el registro, vuelva a intentarlo!");
@@ -46,7 +42,6 @@ export class IngresoComponent implements OnInit {
   }
 
   modalAdd(){
-
     this.activatedAddIngresoComponent = true;
   }
 
