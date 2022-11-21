@@ -2,20 +2,21 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IngresoService } from 'src/app/ingreso.service';
 import { Iingreso } from 'src/app/models/Iingreso';
+import { Iegreso } from '../models/Iegreso';
 
 
 
 @Component({
-  selector: 'app-ingreso',
-  templateUrl: './ingreso.component.html',
-  styleUrls: ['./ingreso.component.css']
+  selector: 'app-egreso',
+  templateUrl: './egreso.component.html',
+  styleUrls: ['./egreso.component.css']
 })
-export class IngresoComponent implements OnInit {
+export class EgresoComponent implements OnInit {
 
   constructor(private service: IngresoService) { }
 
-  dataSource! : Iingreso [];
-    ingreso   : Iingreso ={
+  dataSource! : Iegreso [];
+    ingreso   : Iegreso ={
     detalle   : "",
     fecha     : "",
     id        : 0,

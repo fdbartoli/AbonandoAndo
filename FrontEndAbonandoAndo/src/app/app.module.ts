@@ -20,6 +20,8 @@ import { CuentaCorrienteComponent } from './cuenta-corriente/cuenta-corriente.co
 import { ComprobanteComponent } from './comprobante/comprobante.component';
 import { IngresoComponent } from './ingreso/show-ingreso/ingreso.component';
 import { AddIngresoComponent } from './ingreso/add-ingreso/add-ingreso.component';
+import { EgresoComponent } from './egreso/egreso.component';
+
 
 
 @NgModule({
@@ -38,6 +40,7 @@ import { AddIngresoComponent } from './ingreso/add-ingreso/add-ingreso.component
     ComprobanteComponent,
     IngresoComponent,
     AddIngresoComponent,
+    EgresoComponent
   ],
   imports: [
     BrowserModule,
