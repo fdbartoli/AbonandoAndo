@@ -17,9 +17,9 @@ namespace AbonandoAndo.api.Controllers
         }
 
 
-        // get: api/Ingreso
+        // get: api/Engreso
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Ingreso>>> Get()
+        public async Task<ActionResult<IEnumerable<Egreso>>> Get()
         {
             try
             {
@@ -33,10 +33,10 @@ namespace AbonandoAndo.api.Controllers
             }
         }
 
-        //get: api/Ingreso/5
+        //get: api/Egreso/5
         [HttpGet("{cuil}")]
 
-        public async Task<ActionResult<Ingreso>> GetIngresoCuil(string cuil)
+        public async Task<ActionResult<Ingreso>> GetEgresoCuil(string cuil)
         {
 
             try
@@ -63,7 +63,7 @@ namespace AbonandoAndo.api.Controllers
             }
 
         }
-        // POST: api/Ingreso
+        // POST: api/Egreso
 
         [HttpPost]
 

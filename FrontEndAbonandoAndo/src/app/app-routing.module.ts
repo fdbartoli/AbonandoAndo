@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ShowClienteComponent } from './cliente/show-cliente/show-cliente.component';
-import { EgresoComponent } from './egreso/egreso.component';
+import { EgresoComponent } from './egreso/show-egreso/egreso.component';
+
 import { AuthGuard } from './guards/auth.guard';
 import { HomeComponent } from './home/home/home.component';
 import { IngresoComponent } from './ingreso/show-ingreso/ingreso.component';

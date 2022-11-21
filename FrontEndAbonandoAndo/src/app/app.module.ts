@@ -20,7 +20,9 @@ import { CuentaCorrienteComponent } from './cuenta-corriente/cuenta-corriente.co
 import { ComprobanteComponent } from './comprobante/comprobante.component';
 import { IngresoComponent } from './ingreso/show-ingreso/ingreso.component';
 import { AddIngresoComponent } from './ingreso/add-ingreso/add-ingreso.component';
-import { EgresoComponent } from './egreso/egreso.component';
+import { EgresoComponent } from './egreso/show-egreso/egreso.component';
+import { AddEgresoComponent } from './egreso/add-egreso/add-egreso.component';
+
 
 
 
@@ -40,7 +42,8 @@ import { EgresoComponent } from './egreso/egreso.component';
     ComprobanteComponent,
     IngresoComponent,
     AddIngresoComponent,
-    EgresoComponent
+    EgresoComponent,
+    AddEgresoComponent
   ],
   imports: [
     BrowserModule,

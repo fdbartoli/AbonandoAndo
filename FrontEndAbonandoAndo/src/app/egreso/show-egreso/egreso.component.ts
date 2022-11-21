@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { IngresoService } from 'src/app/ingreso.service';
-import { Iingreso } from 'src/app/models/Iingreso';
-import { EgresoService } from '../egreso.service';
-import { Iegreso } from '../models/Iegreso';
+import { EgresoService } from 'src/app/egreso.service';
+import { Iegreso } from 'src/app/models/Iegreso';
+
+
+
 
 
 
