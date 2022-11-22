@@ -1,0 +1,18 @@
+<input
+[(ngModel)]="cuil"   
+type="text"
+placeholder="Ingrese un número de CUIL"
+aria-label="Ingrese un número de CUIL"
+aria-describedby="basic-addon2"
+/>
+ <br>
+<button (click)="BuscarRegistros()" >Buscar registros</button>
+<br>
+<label>Positivo</label>{{positivo}}
+<br>
+<label>Negativo</label>{{negativo}}
+<br>
+<button (click)="CalcularBalance()" >Calcular saldo </button>
+<br>
+<label>Balance</label>{{balance}}
+<br>

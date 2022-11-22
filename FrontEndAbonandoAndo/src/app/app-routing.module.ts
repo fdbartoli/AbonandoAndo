@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home/home.component';
 import { IngresoComponent } from './ingreso/show-ingreso/ingreso.component';
 import { LoginComponent } from './login/login.component';
 import { ShowOperacionComponent } from './operaciones/show-operacion/show-operacion.component';
+import { SaldoComponent } from './saldo/saldo.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -37,6 +38,11 @@ const routes: Routes = [
   {
     path: 'abonos',
     component: EgresoComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'saldos',
+    component: SaldoComponent,
     canActivate: [AuthGuard],
   },
 

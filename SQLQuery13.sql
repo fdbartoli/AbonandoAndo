@@ -1,0 +1,342 @@
+USE [master]
+GO
+/****** Object:  Database [AbonandoAndo]    Script Date: 11/21/2022 9:22:53 PM ******/
+CREATE DATABASE [AbonandoAndo]
+ CONTAINMENT = NONE
+ ON  PRIMARY 
+( NAME = N'AbonandoAndo', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\DATA\AbonandoAndo.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
+ LOG ON 
+( NAME = N'AbonandoAndo_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\DATA\AbonandoAndo_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
+ WITH CATALOG_COLLATION = DATABASE_DEFAULT
+GO
+ALTER DATABASE [AbonandoAndo] SET COMPATIBILITY_LEVEL = 150
+GO
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [AbonandoAndo].[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+ALTER DATABASE [AbonandoAndo] SET ANSI_NULL_DEFAULT OFF 
+GO
+ALTER DATABASE [AbonandoAndo] SET ANSI_NULLS OFF 
+GO
+ALTER DATABASE [AbonandoAndo] SET ANSI_PADDING OFF 
+GO
+ALTER DATABASE [AbonandoAndo] SET ANSI_WARNINGS OFF 
+GO
+ALTER DATABASE [AbonandoAndo] SET ARITHABORT OFF 
+GO
+ALTER DATABASE [AbonandoAndo] SET AUTO_CLOSE OFF 
+GO
+ALTER DATABASE [AbonandoAndo] SET AUTO_SHRINK OFF 
+GO
+ALTER DATABASE [AbonandoAndo] SET AUTO_UPDATE_STATISTICS ON 
+GO
+ALTER DATABASE [AbonandoAndo] SET CURSOR_CLOSE_ON_COMMIT OFF 
+GO
+ALTER DATABASE [AbonandoAndo] SET CURSOR_DEFAULT  GLOBAL 
+GO
+ALTER DATABASE [AbonandoAndo] SET CONCAT_NULL_YIELDS_NULL OFF 
+GO
+ALTER DATABASE [AbonandoAndo] SET NUMERIC_ROUNDABORT OFF 
+GO
+ALTER DATABASE [AbonandoAndo] SET QUOTED_IDENTIFIER OFF 
+GO
+ALTER DATABASE [AbonandoAndo] SET RECURSIVE_TRIGGERS OFF 
+GO
+ALTER DATABASE [AbonandoAndo] SET  DISABLE_BROKER 
+GO
+ALTER DATABASE [AbonandoAndo] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+GO
+ALTER DATABASE [AbonandoAndo] SET DATE_CORRELATION_OPTIMIZATION OFF 
+GO
+ALTER DATABASE [AbonandoAndo] SET TRUSTWORTHY OFF 
+GO
+ALTER DATABASE [AbonandoAndo] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+GO
+ALTER DATABASE [AbonandoAndo] SET PARAMETERIZATION SIMPLE 
+GO
+ALTER DATABASE [AbonandoAndo] SET READ_COMMITTED_SNAPSHOT OFF 
+GO
+ALTER DATABASE [AbonandoAndo] SET HONOR_BROKER_PRIORITY OFF 
+GO
+ALTER DATABASE [AbonandoAndo] SET RECOVERY FULL 
+GO
+ALTER DATABASE [AbonandoAndo] SET  MULTI_USER 
+GO
+ALTER DATABASE [AbonandoAndo] SET PAGE_VERIFY CHECKSUM  
+GO
+ALTER DATABASE [AbonandoAndo] SET DB_CHAINING OFF 
+GO
+ALTER DATABASE [AbonandoAndo] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
+GO
+ALTER DATABASE [AbonandoAndo] SET TARGET_RECOVERY_TIME = 60 SECONDS 
+GO
+ALTER DATABASE [AbonandoAndo] SET DELAYED_DURABILITY = DISABLED 
+GO
+ALTER DATABASE [AbonandoAndo] SET ACCELERATED_DATABASE_RECOVERY = OFF  
+GO
+EXEC sys.sp_db_vardecimal_storage_format N'AbonandoAndo', N'ON'
+GO
+ALTER DATABASE [AbonandoAndo] SET QUERY_STORE = OFF
+GO
+USE [AbonandoAndo]
+GO
+/****** Object:  Table [dbo].[CLIENTE]    Script Date: 11/21/2022 9:22:53 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[CLIENTE](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[CUIL] [varchar](50) NULL,
+	[APELLIDOS] [varchar](50) NULL,
+	[NOMBRES] [varchar](50) NULL,
+	[DOMICILIO] [varchar](50) NULL,
+	[TELEFONO] [varchar](50) NULL,
+	[MAIL] [nchar](10) NULL,
+ CONSTRAINT [PK_CLIENTE] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[CUENTA]    Script Date: 11/21/2022 9:22:53 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[CUENTA](
+	[id] [int] NULL,
+	[NOMBRES] [varchar](50) NULL,
+	[APELLIDOS] [varchar](50) NULL,
+	[CUIL] [varchar](50) NULL,
+	[DEBE] [decimal](18, 2) NULL,
+	[HABER] [decimal](18, 2) NULL,
+	[SALDO] [decimal](18, 2) NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[EGRESO]    Script Date: 11/21/2022 9:22:53 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[EGRESO](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[MONTO] [decimal](18, 2) NULL,
+	[FECHA] [varchar](50) NULL,
+	[DETALLE] [varchar](50) NULL,
+	[ID_CLIENTE] [int] NULL,
+ CONSTRAINT [PK_EGRESO] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[INGRESO]    Script Date: 11/21/2022 9:22:53 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[INGRESO](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[MONTO] [decimal](18, 2) NULL,
+	[FECHA] [varchar](50) NULL,
+	[DETALLE] [varchar](50) NULL,
+	[ID_CLIENTE] [int] NULL,
+ CONSTRAINT [PK_INGRESO] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[EGRESO]  WITH CHECK ADD  CONSTRAINT [FK_EGRESO_CLIENTE] FOREIGN KEY([ID_CLIENTE])
+REFERENCES [dbo].[CLIENTE] ([ID])
+GO
+ALTER TABLE [dbo].[EGRESO] CHECK CONSTRAINT [FK_EGRESO_CLIENTE]
+GO
+ALTER TABLE [dbo].[INGRESO]  WITH CHECK ADD  CONSTRAINT [FK_INGRESO_CLIENTE] FOREIGN KEY([ID_CLIENTE])
+REFERENCES [dbo].[CLIENTE] ([ID])
+GO
+ALTER TABLE [dbo].[INGRESO] CHECK CONSTRAINT [FK_INGRESO_CLIENTE]
+GO
+/****** Object:  StoredProcedure [dbo].[insert_egreso]    Script Date: 11/21/2022 9:22:53 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		Fernando Bártoli
+-- Description:	Insert egreso
+-- =============================================
+CREATE PROCEDURE [dbo].[insert_egreso]
+@MONTO AS DECIMAL (18,2),
+@FECHA AS VARCHAR(50),
+@DETALLE AS VARCHAR (50),
+@ID_CLIENTE AS INT
+
+AS
+BEGIN
+
+	SET NOCOUNT ON;
+	INSERT INTO [dbo].[EGRESO]
+					([MONTO]
+					,[FECHA]
+					,[DETALLE]
+					,[ID_CLIENTE])
+	VALUES 
+					(@MONTO,
+					 @FECHA,
+					 @DETALLE,
+					 @ID_CLIENTE)	
+END
+GO
+/****** Object:  StoredProcedure [dbo].[insert_ingreso]    Script Date: 11/21/2022 9:22:53 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		Fernando Bártoli
+-- Description:	Insert Ingreso
+-- =============================================
+CREATE PROCEDURE [dbo].[insert_ingreso]
+@MONTO AS DECIMAL (18,2),
+@FECHA AS VARCHAR(50),
+@DETALLE AS VARCHAR (50),
+@ID_CLIENTE AS INT
+
+AS
+BEGIN
+
+	SET NOCOUNT ON;
+	INSERT INTO [dbo].[ingreso]
+					([MONTO]
+					,[FECHA]
+					,[DETALLE]
+					,[ID_CLIENTE])
+	VALUES 
+					(@MONTO,
+					 @FECHA,
+					 @DETALLE,
+					 @ID_CLIENTE)	
+END
+GO
+/****** Object:  StoredProcedure [dbo].[select_all_cliente]    Script Date: 11/21/2022 9:22:53 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[select_all_cliente] 
+
+AS
+BEGIN
+	SET NOCOUNT ON;
+
+
+	SELECT	  CLIENTE.[ID]
+			, [CUIL]
+			, [APELLIDOS]
+			, [NOMBRES]
+			, [DOMICILIO]
+			, [TELEFONO]
+			, [MAIL]
+
+
+	FROM CLIENTE
+
+END
+GO
+/****** Object:  StoredProcedure [dbo].[select_all_egreso]    Script Date: 11/21/2022 9:22:53 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[select_all_egreso] 
+
+AS
+BEGIN
+	SET NOCOUNT ON;
+
+
+	SELECT	  [ID]
+			, [MONTO]
+			, [FECHA]
+			, [DETALLE]
+			, [ID_CLIENTE]
+
+
+	FROM EGRESO
+
+END
+GO
+/****** Object:  StoredProcedure [dbo].[select_all_ingreso]    Script Date: 11/21/2022 9:22:53 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[select_all_ingreso] 
+
+AS
+BEGIN
+	SET NOCOUNT ON;
+
+
+	SELECT	  [ID]
+			, [MONTO]
+			, [FECHA]
+			, [DETALLE]
+			, [ID_CLIENTE]
+
+
+	FROM INGRESO
+
+END
+GO
+/****** Object:  StoredProcedure [dbo].[select_cliente_egreso_cuil]    Script Date: 11/21/2022 9:22:53 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[select_cliente_egreso_cuil]
+@CUIL AS varchar (59)
+AS
+BEGIN
+
+	SET NOCOUNT ON;
+
+	SELECT EGRESO.ID, MONTO, FECHA, DETALLE, ID_CLIENTE, cliente.CUIL
+	FROM EGRESO
+	INNER JOIN CLIENTE
+	ON EGRESO.ID_cliente = cliente.ID  WHERE @CUIL = [CUIL];
+
+
+END
+GO
+/****** Object:  StoredProcedure [dbo].[select_cliente_ingreso_cuil]    Script Date: 11/21/2022 9:22:53 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[select_cliente_ingreso_cuil]
+@CUIL AS varchar (59)
+AS
+BEGIN
+
+	SET NOCOUNT ON;
+
+	SELECT INGRESO.ID, MONTO, FECHA, DETALLE, ID_CLIENTE, cliente.CUIL
+	FROM INGRESO
+	INNER JOIN CLIENTE
+	ON INGRESO.ID_cliente = cliente.ID  WHERE @CUIL = [CUIL];
+
+
+END
+GO
+USE [master]
+GO
+ALTER DATABASE [AbonandoAndo] SET  READ_WRITE 
+GO
