@@ -61,6 +61,6 @@ export class SaldoComponent implements OnInit {
   }
 
   CalcularBalance() {
-    this.balance = this.positivo - this.negativo;
+    this.balance = this.negativo - this.positivo;
   }
 }
