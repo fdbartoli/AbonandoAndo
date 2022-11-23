@@ -1,7 +1,7 @@
 <div class="container-fluid card">
     <div class="m-2 p-2">
       <div class="mb-4">
-        <h2 style="text-align: center">Cobranza</h2>
+        <h2 style="text-align: left">Cobranzas</h2>
       </div>
       <div class="d-flex justify-content-center">
         <div class="row col-6">
@@ -12,7 +12,7 @@
               placeholder="Ingrese un número de CUIL"
               aria-label="Ingrese un número de CUIL"
               aria-describedby="basic-addon2"
-            />
+            >
             <div class="input-group-append">
               <button
                 type="button"
@@ -30,14 +30,13 @@
               (click)="modalAdd()"
               
             >
-              <i class="bi bi-search "></i>
-              Agregar Registro
+              <i class="bi bi-plus-circle "></i>
+              Agregar 
             </button>
             </div>
           </div>
         </div>
       </div>
-  
       <div>
         <p class="text-center text-muted">
           Ingrese un número de cuil.
@@ -57,7 +56,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="staticBackdropLabel">
-            Agregar Cobranza.
+            Agregar cobranza
           </h5>
           <button
             type="button"
@@ -79,10 +78,10 @@
     </div>
 </div>
 
-
+<div class="card">
 <table class="table table-striped">
   <thead>
-    <th>Id</th>
+    <th>Nro. Comprobante</th>
     <th>Fecha</th>
     <th>Detalle</th>
     <th>Monto</th>
@@ -94,4 +93,4 @@
       <td>{{ item.detalle | titlecase }}</td>
       <td>{{ item.monto | currency }}</td>
 </table>
-
+</div>
