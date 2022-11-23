@@ -1,18 +1,78 @@
-<input
-[(ngModel)]="cuil"   
-type="text"
-placeholder="Ingrese un número de CUIL"
-aria-label="Ingrese un número de CUIL"
-aria-describedby="basic-addon2"
-/>
- <br>
-<button (click)="BuscarRegistros()" >Buscar registros</button>
-<br>
-<label>Positivo</label>{{positivo}}
-<br>
-<label>Negativo</label>{{negativo}}
-<br>
-<button (click)="CalcularBalance()" >Calcular saldo </button>
-<br>
-<label>Balance</label>{{balance}}
-<br>
+<div class="container-fluid card">
+  <div class="m-2 p-2">
+    <div class="mb-4">
+      <h2>Saldos</h2>
+    </div>
+    <div class="d-flex justify-content-center">
+      <div class="col-6">
+        <div class="input-group mb-3">
+          <input
+            [(ngModel)]="cuil"
+            class="form-control"
+            type="text"
+            placeholder="Ingrese un número de CUIL."
+            aria-label="Ingrese un número de CUIL."
+            aria-describedby="basic-addon2"
+          />
+          <div class="input-group-append">
+            <button
+              type="button"
+              class="btn btn-success"
+              (click)="BuscarRegistros()"
+            >
+              <i class="bi bi-search"></i>
+              Buscar registros
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <p class="text-center text-muted">Ingrese un número de cuil.</p>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-center">
+
+    <div class="col-3">
+      <div class="info-box shadow">
+        <span class="info-box-icon bg-danger"
+          ><i class="bi bi-calendar2-week-fill"></i
+        ></span>
+        <div class="info-box-content">
+          <span class="info-box-text"><label>Total abonos</label></span>
+          <span class="h3 info-box-number text-center">$ {{ negativo }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-3">
+      <div class="info-box shadow">
+        <span class="info-box-icon bg-success"
+          ><i class="bi bi-credit-card-fill"></i
+        ></span>
+        <div class="info-box-content">
+          <span class="info-box-text"><label>Total cobranzas</label></span>
+          <span class="h3 info-box-number text-center">$ {{ positivo }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-center mb-5">
+    <div class="col-6">
+      <div class="info-box shadow">
+        <div class="info-box-content">
+          <span class="info-box-text text-center"
+            ><label>Total a pagar</label></span
+          >
+          <span class="h3 info-box-number text-center">$ {{ balance }}</span>
+          <button class="btn btn-success" (click)="CalcularBalance()">
+            Calcular total
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
